@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
 
   <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
-  
+  <link rel="stylesheet" href="style.css">
   <title>Frontend Mentor | Newsletter sign-up form with success message</title>
 
   <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
@@ -16,9 +16,41 @@
 </head>
 <body>
 
+  <section class="news-letter-section">
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <div class="heading">
+            <h1>Stay updated!</h1>
+            <p>Join 60,000+ product managers receiving monthly updates on:</p>
+          </div>
+          <ul>
+            <li>Product discovery and building what matters</li>
+            <li>Measuring to ensure updates are a success</li>
+            <li>And much more!</li>
+          </ul>
+          <div >
+            <form action="" class="flex flex-column gap-1">
+              <div class="flex flex-column gap-0-5">
+                <label for="email"
+                class="">Email address</label>
+                <input type="email" id="email" name="email" placeholder="email@company.com"
+                class="">
+              </div>
+              <button type="submit">Subscribe to monthly newsletter</button>
+            </form>
+          </div>
+        </div>
+        <div class="p-1">
+          <img src="./assets/images/illustration-sign-up-desktop.svg" alt="">
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Sign-up form start -->
 
-  Stay updated!
+  <!-- Stay updated!
 
   Join 60,000+ product managers receiving monthly updates on:
 
@@ -29,18 +61,18 @@
   Email address
   email@company.com
 
-  Subscribe to monthly newsletter
+  Subscribe to monthly newsletter -->
 
   <!-- Sign-up form end -->
 
   <!-- Success message start -->
 
-  Thanks for subscribing!
+  <!-- Thanks for subscribing!
 
   A confirmation email has been sent to ash@loremcompany.com. 
   Please open it and click the button inside to confirm your subscription.
 
-  Dismiss message
+  Dismiss message -->
 
   <!-- Success message end -->
   
