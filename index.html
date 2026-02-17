@@ -13,13 +13,57 @@
     .attribution { font-size: 11px; text-align: center; }
     .attribution a { color: hsl(228, 45%, 44%); }
   </style>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function(){
+      const form = document.querySelector("form");
+      const emailInput = document.getElementById("email");
+      const errorMessage = document.getElementById("error-message");
+      const illustrationImg = document.querySelector(".right-col img");
+
+      function changeIllustration() {
+        if (window.innerWidth <= 375) {
+          illustrationImg.src = "./assets/images/illustration-sign-up-mobile.svg";
+        } else {
+          illustrationImg.src = "./assets/images/illustration-sign-up-desktop.svg";
+        }
+      }
+
+      changeIllustration();
+      window.addEventListener("resize", changeIllustration);
+
+      emailInput.addEventListener("blur" , function(){
+        validateEmailInput();
+      })
+
+      const emailValue = emailInput.value.trim();
+
+      function validateEmailInput(){
+        if(emailValue === "" || !validateEmail(emailValue)){
+          errorMessage.style.display = "block";
+          emailInput.classList.add("error-border");
+          emailInput.classList.add("error-background");
+        } else {
+          errorMessage.style.display = "none";
+          emailInput.classList.remove("error-border");
+          emailInput.classList.remove("error-background");
+          // Here you can add code to handle successful form submission, like showing a success message or redirecting the user.
+        }
+      }
+
+      function validateEmail(email) {
+        const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return re.test(email);
+      }
+
+    })
+  </script>
 </head>
 <body>
-
-  <section class="news-letter-section">
+  <section class="newsletter-section">
     <div class="container">
       <div class="row">
-        <div class="col">
+        <div class="left-col">
           <div class="heading">
             <h1>Stay updated!</h1>
             <p>Join 60,000+ product managers receiving monthly updates on:</p>
@@ -29,20 +73,21 @@
             <li>Measuring to ensure updates are a success</li>
             <li>And much more!</li>
           </ul>
-          <div >
-            <form action="" class="flex flex-column gap-1">
-              <div class="flex flex-column gap-0-5">
-                <label for="email"
-                class="">Email address</label>
-                <input type="email" id="email" name="email" placeholder="email@company.com"
+            <form action="" class="form-email">
+              <div class="form-email-div">
+                <div class="label-container">
+                  <label for="email"
+                  class="">Email address</label>
+                  <p id="error-message" class="color-red none">Valid email address required</p>
+                </div>
+                <input type="text" id="email" name="email" placeholder="email@company.com"
                 class="">
               </div>
               <button type="submit">Subscribe to monthly newsletter</button>
             </form>
-          </div>
         </div>
-        <div class="p-1">
-          <img src="./assets/images/illustration-sign-up-desktop.svg" alt="">
+        <div class="right-col">
+          <img src="./assets/images/illustration-sign-up-desktop.svg" alt="sign-up-image" class="w-100 h-auto object-fit-cover">
         </div>
       </div>
     </div>
@@ -76,9 +121,9 @@
 
   <!-- Success message end -->
   
-  <div class="attribution">
+  <!-- <div class="attribution">
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
     Coded by <a href="#">Your Name Here</a>.
-  </div>
+  </div> -->
 </body>
 </html>

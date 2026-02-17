@@ -8,20 +8,7 @@
     src: url('./assets/fonts/Roboto-Regular.ttf') format('truetype');
 }
 
-/* CSS RESET */
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-html, body{
-    width: 100%;
-    height: 100%;
-}
-
-/* ROOT VARIABLES */
-:root{
+:root {
     --bg-color: hsl(235, 18%, 26%);
     --text-color: hsl(234, 29%, 20%);
     --card-color: hsl(0, 0%, 100%);
@@ -29,11 +16,23 @@ html, body{
     --secondary-color: #22c55e;
     --border-radius: 0.5rem;
     --border-radius-lg: 2rem;
-    --border-color : hsl(0, 0%,58%);
+    --border-color: hsl(0, 0%, 58%);
 }
 
-/* BODY */
-body{
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+
+
+body {
     font-family: 'Roboto-Regular', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     background-color: var(--bg-color);
     color: var(--text-color);
@@ -41,128 +40,187 @@ body{
     font-size: 16px;
 }
 
-/* MEDIA DEFAULTS */
-img, picture, video, canvas, svg{
-    display: block;
-    max-width: 100%;
+.newsletter-section {
+    width: 100%;
+    height: 100dvh;
+    background-color: var(--bg-color);
 }
 
-/* FORM ELEMENTS */
-input, button, textarea, select{
-    font: inherit;
-}
-
-button{
-    cursor: pointer;
-    border: none;
-    background: none;
-}
-
-/* LINKS */
-a{
-    text-decoration: none;
-    color: inherit;
-}
-
-.news-letter-section{
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-/* UTILITIES */
-.container{
-    max-width: 1200px;
+.container {
+    max-width: 1000px;
+    height: 100dvh;
     margin: 0 auto;
-    padding: 0 1rem;
+    padding: 8rem 1rem; 
 }
 
-.center{
+.row {
+    width: auto;
+    height: auto;
     display: flex;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
-}
-
-.row{
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
     background-color: var(--card-color);
     border-radius: var(--border-radius-lg);
 }
 
-.col{
-    flex: 1;
-    padding: 2rem;
-    color:var(--text-color);
+.left-col,
+.right-col {
+    width: 50%;
+    height: auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap:2.5rem;
 }
 
-.heading{
+.left-col {
+    padding: 4rem;
+    gap: 2rem
+}
+
+.left-col h1 {
+    font-family: 'Roboto-Bold';
+    font-size: 3.5rem;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.heading {
     display: flex;
     flex-direction: column;
+    gap: 1.2rem;
+}
+
+ul li {
+    list-style: none;
+    background: url("./assets/images/icon-list.svg") left center no-repeat;
+    padding-left: 30px;
+    line-height: 2.5;
+}
+
+.form-email,
+.form-email-div {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     gap: 0.5rem;
 }
 
-h1{
-    font-family: 'Roboto-Bold', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    font-size: 3rem;
-    font-weight: 700;
+.form-email {
+    gap: 1.5rem;
 }
 
-ul{
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-li {
-  background: url("./assets/images/icon-list.svg") left center no-repeat; /* Sets the custom image as a background, vertically centered */
-  padding-left: 30px; /* Adjust the padding to create space between the image and text */
-  line-height: 1.5; /* Optional: Adjust line height for better vertical alignment with multi-line text */
-}
-
-.flex{
+.label-container {
+    width: 100%;
     display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.flex-column{
-    flex-direction: column;
-}
-
-label{
-    font-size: 0.85rem;
+.label-container label {
+    display: block;
+    font-size: 0.8rem;
     font-weight: 600;
 }
 
-input[type="email"]{
-    padding: 0.75rem 1rem;
+input[type="text"] {
+    padding: 1.25rem 1rem;
     border: 1px solid var(--border-color);
     border-radius: var(--border-radius);
     width: 100%;
 }
 
-.gap-1{
-    gap: 1rem;
-}
-
-.gap-0-5{
-    gap: 0.5rem;
-}
-
-button[type="submit"]{
+button[type="submit"] {
+    width: 100%;
     background-color: var(--text-color);
     color: var(--card-color);
-    padding: 0.75rem 1rem;
+    padding: 1.25rem 1rem;
     border-radius: var(--border-radius);
     font-weight: 600;
-    transition: background-color 0.3s ease;
+    border: 0px;
+    transition: background 0.3s ease;
 }
 
-.p-1{
-    padding: 1.5rem;
+button[type="submit"]:hover {
+
+    background: linear-gradient(90deg, hsl(345, 90%, 60%) 0%, hsl(18, 95%, 60%) 100%);
+    box-shadow: 0 10px 20px rgba(255, 69, 58, 0.5);
+}
+
+.bg-black {
+    background-color: black;
+}
+
+.right-col {
+    padding: 2rem;
+}
+
+.color-red {
+    color: red;
+    font-weight: 500;
+}
+
+.none {
+    display: none;
+}
+
+input[type="text"].error-border {
+    border-color: hsl(0, 100%, 50%);
+    color: hsl(0, 100%, 63%);
+}
+
+.error-background {
+    background-color: hsl(0, 100%, 63%, 0.1);
+}
+
+.w-100{
+    width: 100%;
+}
+
+.h-auto{
+    height: auto;
+}
+
+.object-fit-cover {
+    object-fit: cover;
+}
+
+@media (max-width:375px) {
+    .container{
+        max-width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+    .row {
+        width: 100%;
+        border-radius: 0px;
+        flex-direction: column-reverse;
+    }
+
+    .left-col,
+    .right-col{
+        width: 100%;
+        height: auto;
+    }
+    
+    .left-col{
+        padding: 2rem;
+    }
+
+    .left-col h1{
+        font-size: 3rem;
+    }
+    .right-col{
+        padding: 0;
+    }
+
+    ul li {
+    background: url("./assets/images/icon-list.svg") left top no-repeat;
+    padding-left: 30px;
+    line-height: 1.4;
+    margin-bottom: 1.2rem;
+}
 }
