@@ -20,6 +20,11 @@
       const emailInput = document.getElementById("email");
       const errorMessage = document.getElementById("error-message");
       const illustrationImg = document.querySelector(".right-col img");
+      const submitButton = document.querySelector(".submit");
+
+      const leftCol = document.querySelector(".left-col");
+      const rightCol = document.querySelector(".right-col");
+      const colThanks = document.querySelector(".col-thanks")
 
       function changeIllustration() {
         if (window.innerWidth <= 375) {
@@ -32,8 +37,10 @@
       changeIllustration();
       window.addEventListener("resize", changeIllustration);
 
-      emailInput.addEventListener("blur" , function(){
-        validateEmailInput();
+
+
+      form.submit(function(){
+        validateEmail();
       })
 
       const emailValue = emailInput.value.trim();
@@ -47,6 +54,9 @@
           errorMessage.style.display = "none";
           emailInput.classList.remove("error-border");
           emailInput.classList.remove("error-background");
+          leftCol.style.display = "none";
+          rightCol.style.display = "none";
+          colThanks.style.display = "block";
           // Here you can add code to handle successful form submission, like showing a success message or redirecting the user.
         }
       }
@@ -83,12 +93,22 @@
                 <input type="text" id="email" name="email" placeholder="email@company.com"
                 class="">
               </div>
-              <button type="submit">Subscribe to monthly newsletter</button>
+              <button type="submit" id="submit">Subscribe to monthly newsletter</button>
             </form>
         </div>
         <div class="right-col">
           <img src="./assets/images/illustration-sign-up-desktop.svg" alt="sign-up-image" class="w-100 h-auto object-fit-cover">
         </div>
+        <!-- <div class="col-thanks">
+          <div class="heading-col-thanks">
+            <div class="w-auto h-auto">
+              <img src="./assets/images/icon-success.svg" alt="" class="w- h-auto object-fit-cover">
+            </div>
+            <h1>Thanks for subscribing!</h1>
+            <p>A confirmation email has been sent to safeer@gmail.com. Please open it and click the button inside to confirm your subscribtion.</p>
+          </div>
+            <button type="submit">Dismiss Message</button>
+        </div> -->
       </div>
     </div>
   </section>
