@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
 
   <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
   <link rel="stylesheet" href="style.css">
@@ -10,12 +12,18 @@
 
   <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
   <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
+    .attribution {
+      font-size: 11px;
+      text-align: center;
+    }
+
+    .attribution a {
+      color: hsl(228, 45%, 44%);
+    }
   </style>
 
   <script>
-    document.addEventListener("DOMContentLoaded", function(){
+    document.addEventListener("DOMContentLoaded", function () {
       const form = document.querySelector("form");
       const emailInput = document.getElementById("email");
       const errorMessage = document.getElementById("error-message");
@@ -25,6 +33,8 @@
       const leftCol = document.querySelector(".left-col");
       const rightCol = document.querySelector(".right-col");
       const colThanks = document.querySelector(".col-thanks")
+
+      const dismissButton = document.querySelector(".dismiss");
 
       function changeIllustration() {
         if (window.innerWidth <= 375) {
@@ -38,26 +48,32 @@
       window.addEventListener("resize", changeIllustration);
 
 
-
-      form.submit(function(){
-        validateEmail();
+      form.addEventListener("submit", function (event) {
+        event.preventDefault();
+        console.log("Hello Working")
+        validateEmailInput();
       })
 
-      const emailValue = emailInput.value.trim();
+      dismissButton.addEventListener("click" , function(){
+          leftCol.classList.remove("hidden");
+          rightCol.classList.remove("hidden");
+          colThanks.classList.add("hidden");
+      })
+      
 
-      function validateEmailInput(){
-        if(emailValue === "" || !validateEmail(emailValue)){
+      function validateEmailInput() {
+        const emailValue = emailInput.value.trim();
+        if (emailValue === "" || !validateEmail(emailValue)) {
           errorMessage.style.display = "block";
           emailInput.classList.add("error-border");
           emailInput.classList.add("error-background");
         } else {
-          errorMessage.style.display = "none";
+          errorMessage.style.display = "hidden";
           emailInput.classList.remove("error-border");
           emailInput.classList.remove("error-background");
-          leftCol.style.display = "none";
-          rightCol.style.display = "none";
-          colThanks.style.display = "block";
-          // Here you can add code to handle successful form submission, like showing a success message or redirecting the user.
+          leftCol.classList.add("hidden");
+          rightCol.classList.add("hidden");
+          colThanks.classList.remove("hidden");
         }
       }
 
@@ -69,6 +85,7 @@
     })
   </script>
 </head>
+
 <body>
   <section class="newsletter-section">
     <div class="container">
@@ -83,23 +100,22 @@
             <li>Measuring to ensure updates are a success</li>
             <li>And much more!</li>
           </ul>
-            <form action="" class="form-email">
-              <div class="form-email-div">
-                <div class="label-container">
-                  <label for="email"
-                  class="">Email address</label>
-                  <p id="error-message" class="color-red none">Valid email address required</p>
-                </div>
-                <input type="text" id="email" name="email" placeholder="email@company.com"
-                class="">
+          <form action="" class="form-email">
+            <div class="form-email-div">
+              <div class="label-container">
+                <label for="email" class="">Email address</label>
+                <p id="error-message" class="color-red hidden">Valid email address required</p>
               </div>
-              <button type="submit" id="submit">Subscribe to monthly newsletter</button>
-            </form>
+              <input type="text" id="email" name="email" placeholder="email@company.com" class="">
+            </div>
+            <button type="submit" id="submit">Subscribe to monthly newsletter</button>
+          </form>
         </div>
         <div class="right-col">
-          <img src="./assets/images/illustration-sign-up-desktop.svg" alt="sign-up-image" class="w-100 h-auto object-fit-cover">
+          <img src="./assets/images/illustration-sign-up-desktop.svg" alt="sign-up-image"
+            class="w-100 h-auto object-fit-cover">
         </div>
-        <!-- <div class="col-thanks">
+        <div class="col-thanks hidden">
           <div class="heading-col-thanks">
             <div class="w-auto h-auto">
               <img src="./assets/images/icon-success.svg" alt="" class="w- h-auto object-fit-cover">
@@ -107,8 +123,8 @@
             <h1>Thanks for subscribing!</h1>
             <p>A confirmation email has been sent to safeer@gmail.com. Please open it and click the button inside to confirm your subscribtion.</p>
           </div>
-            <button type="submit">Dismiss Message</button>
-        </div> -->
+            <button class="dismiss">Dismiss Message</button>
+        </div>
       </div>
     </div>
   </section>
@@ -140,10 +156,11 @@
   Dismiss message -->
 
   <!-- Success message end -->
-  
+
   <!-- <div class="attribution">
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
     Coded by <a href="#">Your Name Here</a>.
   </div> -->
 </body>
+
 </html>
