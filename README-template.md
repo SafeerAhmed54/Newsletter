@@ -31,12 +31,7 @@ Users should be able to:
 ### Links
 
 - Solution URL: [Newsletter Signup Form](https://github.com/yourusername/newsletter-signup)
-- Live Site URL: [View Live](https://your-live-site-url.com)
-
-### Links
-
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Live Site URL: [View Live](https://safeerahmed54.github.io/Newsletter/)
 
 ## My process
 
